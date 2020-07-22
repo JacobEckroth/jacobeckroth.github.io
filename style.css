@@ -1,0 +1,187 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:Coustard;
+}
+
+body{
+    background-color:#eeeeee;
+}
+
+.topbar{
+    font-family:Coustard;
+    padding-top:15px;
+    
+    background-color: #5c9b79;
+    color:white;
+    margin-bottom:0px;
+    padding-bottom:0px;
+    
+}
+.Info{
+    margin-left:30px;
+}
+.Info h1.Name{
+    font-size:40px;
+}
+.Info h2.Description{
+    font-weight:400;
+    font-size:20px;
+}
+
+
+
+.navbar{
+    padding-top:10px;
+    margin-top:0px;
+    background-color:#5c9b79;
+    font-weight:400px;
+    padding-bottom:10px;
+    font-size:25px;
+    width:100%;
+    text-align:right;
+    
+}
+.navlist{
+    display:inline;
+   
+
+    list-style-type:none;
+    padding-right:10px;
+}
+
+.navlist a{
+    text-decoration:none;
+    color:white;
+}
+.navlist a:hover{
+    text-decoration:underline;
+}
+.current{
+    text-decoration:underline;
+}
+
+.navlist a:visited{
+    color:white;
+}
+
+
+
+.page-title{
+    font-weight:400;
+    text-align:center;
+    background-color:#cccccc;
+    box-shadow:0px 10px 10px #00000069;
+    padding-bottom:10px;
+    padding-top:10px;
+    color:white;
+}
+
+
+
+
+/* project flexbox stuff down here */
+
+#project-holder{
+    display:flex;
+    flex-flow:row wrap;
+    margin-left:200px;
+    margin-right:200px;
+    justify-content:space-between;
+    margin-bottom:20px;
+    transition:margin-left 1s, margin-right 1s;
+
+}
+
+#project{
+    transition:box-shadow .5s,flex-basis 1s;
+    margin-top:20px;
+    flex-basis:30%;
+    background-color:white;
+    text-align:center;
+    padding:5px;
+    border-style:solid;
+    border-width:2px;
+    border-color:#666666;
+}
+
+#project .project-image{
+    width:100%;
+    height:auto;
+}
+
+#project:hover{
+    box-shadow:10px 10px 10px #00000041;
+}
+
+
+@media(max-width:1500px){
+    #project{
+        flex-basis:45%;
+        transition:box-shadow .5s,flex-basis 1.5s;
+    }
+    #project-holder{
+        
+        margin-left:80px;
+        margin-right:80px;
+    }
+}
+@media(max-width:900px){
+    #project{
+        flex-basis:100%;
+    }
+    #project-holder{
+        margin-left:40px;
+        margin-right:40px;
+    }
+}
+@media(max-width:500px){
+    .navbar{
+        font-size:20px;
+    }
+}
+@media(max-width:378px){
+    .navbar{
+        font-size:15px;
+    }
+}
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  ::-webkit-scrollbar:hover {
+    width:10px;
+  }
+
+
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.content {
+    padding: 16px;
+  }
