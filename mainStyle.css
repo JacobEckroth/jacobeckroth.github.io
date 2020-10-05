@@ -9,11 +9,11 @@
     font-family: 'Gloria Hallelujah', cursive;
     width:100%;
     background-color:#e0ced1;
-    font-size:3vw;
+    font-size:7vh;
     text-align: center;
     box-shadow: 0 10px 10px #888888;
-    padding-top:1vw;
-    padding-bottom:1vw;
+
+    padding-bottom:1vh;
     margin-bottom:20px;
    
 }
