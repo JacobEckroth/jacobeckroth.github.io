@@ -8,7 +8,8 @@
 #topBar h1{
     font-family: 'Gloria Hallelujah', cursive;
     width:100%;
-    background-color:#e0ced1;
+    background-color:#715cb5;
+    color:white;
     font-size:7vh;
     text-align: center;
     box-shadow: 0 10px 10px #888888;
@@ -31,7 +32,7 @@
 }
 #mainContentHolder h2{
     font-size:4vh;
-    color:#424eed;
+    color:#2d147d;
     text-shadow: 3px 3px 5px #888888;
 }
 #mainContentHolder p{
@@ -55,5 +56,6 @@
     #mainContentHolder{
         width:100%;
         margin:0px;
+        box-shadow: none;
     }
 }
