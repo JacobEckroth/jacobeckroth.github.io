@@ -39,3 +39,21 @@
     font-size:2vh;
 
 }
+
+
+
+@media(max-width: 1000px){
+    #mainContentHolder{
+        width:75%;
+        margin-left:10vw;
+        margin-right:10vw;
+        padding-left:2.5vw;
+        padding-right:2.5vw;
+    }
+}
+@media(max-width: 600px){
+    #mainContentHolder{
+        width:100%;
+        margin:0px;
+    }
+}
