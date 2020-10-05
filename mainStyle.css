@@ -14,6 +14,28 @@
     box-shadow: 0 10px 10px #888888;
 
     padding-bottom:1vh;
-    margin-bottom:20px;
+    margin-bottom:1vh;
    
+}
+
+#mainContentHolder{
+    width:50%;
+    text-align:center;
+    margin-left:23vw;
+    margin-right:23vw;
+    padding-bottom:2vh;
+    padding-left:2vw;
+    padding-right:2vw;
+    background-color:#e0e0e0;
+    box-shadow: 10px 10px 10px #888888;
+}
+#mainContentHolder h2{
+    font-size:4vh;
+    color:#424eed;
+    text-shadow: 3px 3px 5px #888888;
+}
+#mainContentHolder p{
+    text-align:left;
+    font-size:2vh;
+
 }
