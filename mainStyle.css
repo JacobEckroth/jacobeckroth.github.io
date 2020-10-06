@@ -59,7 +59,7 @@
 
 
 
-#mainContentHolder{
+.ContentHolder{
     width:50%;
     text-align:center;
     margin-left:23vw;
@@ -71,13 +71,13 @@
     background-color:white;
     box-shadow: 10px 10px 10px #888888;
 }
-#mainContentHolder h2{
+.ContentHolder h2{
     background-color:white;
     font-size:4vh;
     color:#2d147d;
     text-shadow: 3px 3px 5px #888888;
 }
-#mainContentHolder p{
+.ContentHolder p{
     background-color: white;
     text-align:left;
     font-size:2vh;
