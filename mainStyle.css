@@ -2,40 +2,83 @@
     font-family: 'Lora', serif;
     margin: 0px;
     padding: 0px;
+    background-color: #d6d6d6;
 }
 
-
-#topBar h1{
-    font-family: 'Gloria Hallelujah', cursive;
-    width:100%;
+#topbar{
+    width:100vw;
+    
     background-color:#715cb5;
-    color:white;
-    font-size:7vh;
-    text-align: center;
-    box-shadow: 0 10px 10px #888888;
-
-    padding-bottom:1vh;
     margin-bottom:1vh;
+    
    
 }
+#topBar h1{
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color:#715cb5;
+    padding-bottom:1vh;
+ 
+    font-size:7vh;
+    text-align: center;
+   
+    color: white;
+}
+.navbarItem{
+    display:inline;
+    font-size:3vh;
+    background-color: #715cb5;
+}
+#navbarList{
+    box-shadow: 0 10px 10px #888888;
+    padding-left:2vw;
+    background-color: #715cb5;
+    padding-bottom:2vh;
+}
+.navbarLink{
+    color: white;
+    text-decoration: none;
+    background-color: #715cb5;
+    padding-right:4vw;
+}
+.navbarLink:hover{
+    text-decoration:underline;
+}
+
+.active_link{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #mainContentHolder{
     width:50%;
     text-align:center;
     margin-left:23vw;
     margin-right:23vw;
+    margin-top:1vh;
     padding-bottom:2vh;
     padding-left:2vw;
     padding-right:2vw;
-    background-color:#e0e0e0;
+    background-color:white;
     box-shadow: 10px 10px 10px #888888;
 }
 #mainContentHolder h2{
+    background-color:white;
     font-size:4vh;
     color:#2d147d;
     text-shadow: 3px 3px 5px #888888;
 }
 #mainContentHolder p{
+    background-color: white;
     text-align:left;
     font-size:2vh;
 
