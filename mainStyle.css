@@ -1,104 +1,37 @@
 *{
-    font-family: 'Lora', serif;
-    margin: 0px;
-    padding: 0px;
-    background-color: #d6d6d6;
-}
-
-#topbar{
-    width:100vw;
-    
-    background-color:#715cb5;
-    margin-bottom:1vh;
-    
-   
-}
-#topBar h1{
-    font-family: 'Gloria Hallelujah', cursive;
-    background-color:#715cb5;
-    padding-bottom:1vh;
- 
-    font-size:7vh;
-    text-align: center;
-   
-    color: white;
-}
-.navbarItem{
-    display:inline;
-    font-size:3vh;
-    background-color: #715cb5;
-}
-#navbarList{
-    box-shadow: 0 10px 10px #888888;
-    padding-left:2vw;
-    background-color: #715cb5;
-    padding-bottom:2vh;
-}
-.navbarLink{
-    color: white;
-    text-decoration: none;
-    background-color: #715cb5;
-    padding-right:4vw;
-}
-.navbarLink:hover{
-    text-decoration:underline;
-}
-
-.active_link{
-    text-decoration: underline;
+    margin:0px;
+    padding:0px;
+    background-color: black;
 }
 
 
+.navHolder{
+    align-items:center;
+    width:100%;
+}
 
-
-
-
-
-
-
-
-
-
-.ContentHolder{
-    width:50%;
+#navList{
     text-align:center;
-    margin-left:23vw;
-    margin-right:23vw;
-    margin-top:1vh;
-    padding-bottom:2vh;
-    padding-left:2vw;
-    padding-right:2vw;
-    background-color:white;
-    box-shadow: 10px 10px 10px #888888;
-}
-.ContentHolder h2{
-    background-color:white;
-    font-size:4vh;
-    color:#2d147d;
-    text-shadow: 3px 3px 5px #888888;
-}
-.ContentHolder p{
-    background-color: white;
-    text-align:left;
-    font-size:2vh;
-
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content:space-around;
+    align-items:center;
+    height:100vh;
 }
 
-
-
-@media(max-width: 1000px){
-    #mainContentHolder{
-        width:75%;
-        margin-left:10vw;
-        margin-right:10vw;
-        padding-left:2.5vw;
-        padding-right:2.5vw;
-    }
+.navItem a:visited{
+    color:black;
 }
-@media(max-width: 600px){
-    #mainContentHolder{
-        width:100%;
-        margin:0px;
-        box-shadow: none;
-    }
+.navItem a:link{
+    color:black;
+}
+.navItem a{
+    transition: color .5s;
+    font-size:10vh;
+    text-decoration: none;
+    color: black;
+    -webkit-text-stroke: 1px white;
+}
+.navItem a:hover{
+    color:white;
 }
