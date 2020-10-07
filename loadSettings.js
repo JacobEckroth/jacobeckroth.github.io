@@ -4,7 +4,7 @@ const timeToNextLoad = 500
 function removePreload(){
 
     document.querySelector(".preload").classList.remove("preload")
-    appearText();
+    setTimeout( appearText,timeToNextLoad);
 }
 
 
@@ -12,7 +12,7 @@ function removePreload(){
 
 var currentUpdating = 0
 function appearText(){
- 
+    
     var textHolder = document.getElementById("navList")
     textHolder.children[currentUpdating].style.fontSize = "12vh";
     currentUpdating+=1
