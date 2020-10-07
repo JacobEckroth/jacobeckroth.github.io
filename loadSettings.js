@@ -1,5 +1,5 @@
 window.addEventListener("load",removePreload);
-
+const timeToNextLoad = 500
 
 function removePreload(){
 
@@ -17,6 +17,13 @@ function appearText(){
     textHolder.children[currentUpdating].style.fontSize = "12vh";
     currentUpdating+=1
     if(!(currentUpdating>= textHolder.children.length)){
-        setTimeout(appearText,500);
+        setTimeout(appearText,timeToNextLoad);
+    }else{
+        setTimeout(function(){
+            for(var i = 0; i < textHolder.children.length; i++){
+                textHolder.children[i].style.transition = "none";
+            }
+        },timeToNextLoad*2)
+     
     }
 }
