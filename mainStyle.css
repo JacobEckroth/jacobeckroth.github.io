@@ -2,6 +2,7 @@
     margin:0px;
     padding:0px;
     background-color: black;
+    font-family: 'Playfair Display', serif;
 }
 
 
@@ -17,6 +18,11 @@
     justify-content:space-around;
     align-items:center;
     height:80vh;
+    
+}
+.navItem{
+    font-size:0vh;
+    transition: font-size 1s ease;
 }
 
 .navItem a:visited{
@@ -27,7 +33,6 @@
 }
 .navItem a{
   
-    font-size:10vh;
     text-decoration: none;
     transition: background-position 275ms ease;
     color: black;
@@ -43,6 +48,7 @@
 
 .navItem a:hover {
     background-position: 0 100%;
+
   }
 
 .preload * {
