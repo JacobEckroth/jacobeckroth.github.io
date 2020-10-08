@@ -40,9 +40,9 @@ body{
     flex-flow: column nowrap;
     justify-content:space-around;
     align-items:center;
-    height:90vh;
-    margin-top:5vh;
-    margin-bottom:5vh;
+    height:80vh;
+    margin-top:10vh;
+    margin-bottom:10vh;
     
 }
 .navItem{
