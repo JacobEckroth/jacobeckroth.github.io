@@ -4,7 +4,19 @@ dropdownButton = document.getElementById("dropdownImage")
 
 dropdownButton.addEventListener("click",showOptions);
 
-
+function hideOptions(event){
+   
+    if(!(event.target.classList.contains("navLink"))){
+        navHolder = document.getElementById("navHolder");
+        navHolder.style.top = "-100vh";
+        grayOut = document.getElementById("opaque");
+        grayOut.style.opacity = "0";
+        setTimeout(function(){
+            document.body.removeChild(navHolder);
+            document.body.removeChild(grayOut);
+        },500)
+    }
+}
 
 var links = ["about.html","portfolio.html","blog.html","constact.html"]
 var names = ["About","Portfolio","Blog","Contact"]
@@ -16,9 +28,10 @@ function showOptions(){
     setTimeout(function(){
         grayOut.style.opacity = .8;
     },100);
+    grayOut.addEventListener("click",hideOptions);
     document.body.appendChild(grayOut);
 
-
+    
     navHolder = document.createElement("div");
     navHolder.style.transition = "top 1s ease"
     navHolder.style.position = "fixed";
@@ -38,6 +51,7 @@ function showOptions(){
     document.body.appendChild(navHolder)
     setTimeout(function(){
         navHolder.style.top = "0vh";
+        navHolder.addEventListener("click",hideOptions);
 
     },100)
 
@@ -63,6 +77,7 @@ function createNavItem(name,link){
     navItem.classList.add("navItem");
     link = document.createElement("a");
     link.href = link;
+    link.classList.add("navLink")
     link.textContent = name;
     navItem.appendChild(link);
     navItem.style.fontSize = "12vh";
