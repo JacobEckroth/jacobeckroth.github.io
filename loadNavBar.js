@@ -8,6 +8,15 @@ dropdownButton.addEventListener("click",showOptions);
 
 var names = ["About","Portfolio","Blog","Contact"]
 function showOptions(){
+    grayOut = document.createElement("div");
+    grayOut.id = "opaque"
+    grayOut.style.opacity = 0;
+    setTimeout(function(){
+        grayOut.style.opacity = .5;
+    },100);
+    document.body.appendChild(grayOut);
+
+
     navHolder = document.createElement("div");
     navHolder.style.transition = "top 1s ease"
     navHolder.style.position = "fixed";
