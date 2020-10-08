@@ -1,0 +1,36 @@
+#jacobPicture{
+    height:30vh;
+    width:auto;
+}
+
+#mainContentHolder{
+
+    padding-top:4vh;
+    width:80%;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
+    overflow: hidden;
+}
+#leftContentHolder{
+    width:70%;
+    
+}
+#rightContentHolder{
+    width:20%;
+}
+p{
+    color:white;
+    font-size:3vh;
+}
+h2{
+    margin-top:3vh;
+    text-decoration:underline;
+    font-weight:normal;
+    color:white;
+    font-size:4vh;
+}
+
+.imageHolder{
+    width:100%;
+}
