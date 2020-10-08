@@ -16,10 +16,11 @@
     overflow: hidden;
 }
 #dropdownImage{
-    width:20vw;
+    width:10vw;
+    transition: transform .5s ease;
     height:auto;
     position:fixed;
-    right:5vw;
+    right:0;
     top:0vh;
 }
 #dropdownImage:hover{

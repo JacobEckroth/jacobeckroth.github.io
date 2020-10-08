@@ -7,6 +7,7 @@ dropdownButton.addEventListener("click",showOptions);
 function hideOptions(event){
    
     if(!(event.target.classList.contains("navLink"))){
+        dropdownImg.style.transform = "rotate(0deg)";
         enableScroll();
         navHolder = document.getElementById("navHolder");
         navHolder.style.top = "-100vh";
@@ -22,6 +23,10 @@ function hideOptions(event){
 var links = ["about.html","portfolio.html","blog.html","constact.html"]
 var names = ["About","Portfolio","Blog","Contact"]
 function showOptions(){
+    dropdownImg = document.getElementById("dropdownImage");
+    dropdownImg.style.transform = "rotate(180deg)";
+
+
     disableScroll();
     grayOut = document.createElement("div");
     grayOut.id = "opaque"
