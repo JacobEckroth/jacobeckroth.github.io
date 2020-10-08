@@ -16,9 +16,10 @@
     overflow: hidden;
 }
 #dropdownImage{
-    width:10vw;
+    height:20vh;
+    width:auto;
     transition: transform .5s ease;
-    height:auto;
+  
     position:fixed;
     right:0;
     top:0vh;
@@ -51,3 +52,6 @@ h2{
 .imageHolder{
     width:100%;
 }
+
+
+@media()
