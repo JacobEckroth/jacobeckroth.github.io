@@ -7,6 +7,7 @@ dropdownButton.addEventListener("click",showOptions);
 function hideOptions(event){
    
     if(!(event.target.classList.contains("navLink"))){
+        enableScroll();
         navHolder = document.getElementById("navHolder");
         navHolder.style.top = "-100vh";
         grayOut = document.getElementById("opaque");
