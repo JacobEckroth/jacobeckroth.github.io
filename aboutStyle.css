@@ -6,14 +6,24 @@
 #mainContentHolder{
 
     padding-top:4vh;
-    width:89%;
-    padding-left:5vw;
-    padding-right:5vw;
+    width:85%;
+    padding-left:7vw;
+    padding-right:7vw;
     display:flex;
     flex-flow: row wrap;
     justify-content:space-between;
    
     overflow: hidden;
+}
+#dropdownImage{
+    width:20vw;
+    height:auto;
+    position:fixed;
+    right:5vw;
+    top:0vh;
+}
+#dropdownImage:hover{
+    cursor:pointer;
 }
 
 p{
