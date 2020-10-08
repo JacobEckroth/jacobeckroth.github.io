@@ -6,13 +6,14 @@ dropdownButton.addEventListener("click",showOptions);
 
 
 
+var links = ["about.html","portfolio.html","blog.html","constact.html"]
 var names = ["About","Portfolio","Blog","Contact"]
 function showOptions(){
     grayOut = document.createElement("div");
     grayOut.id = "opaque"
     grayOut.style.opacity = 0;
     setTimeout(function(){
-        grayOut.style.opacity = .5;
+        grayOut.style.opacity = .8;
     },100);
     document.body.appendChild(grayOut);
 
@@ -42,11 +43,11 @@ function showOptions(){
 
 }
 
-function createNavItem(name){
+function createNavItem(name,link){
     navItem = document.createElement("li");
     navItem.classList.add("navItem");
     link = document.createElement("a");
-    link.href = "#";
+    link.href = link;
     link.textContent = name;
     navItem.appendChild(link);
     navItem.style.fontSize = "12vh";
