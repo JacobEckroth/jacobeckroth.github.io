@@ -6,27 +6,28 @@
 #mainContentHolder{
 
     padding-top:4vh;
-    width:100%;
+    width:89%;
+    padding-left:5vw;
+    padding-right:5vw;
     display:flex;
     flex-flow: row wrap;
-    justify-content:space-around;
+    justify-content:space-between;
     overflow: hidden;
 }
-#leftContentHolder{
-    width:90%;
-    
-}
+
 
 p{
+    font-family: 'Alegreya Sans', sans-serif;
+    line-height: 200%;
     color:white;
     font-size:3vh;
 }
 h2{
     margin-top:3vh;
-    text-decoration:underline;
-    font-weight:normal;
+    margin-bottom:3vh;
+    font-weight:bold;
     color:white;
-    font-size:4vh;
+    font-size:5vh;
 }
 
 .imageHolder{
