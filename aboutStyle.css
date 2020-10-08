@@ -16,6 +16,7 @@
     overflow: hidden;
 }
 #dropdownImage{
+    opacity:.5;
     height:20vh;
     width:auto;
     transition: transform .5s ease;
