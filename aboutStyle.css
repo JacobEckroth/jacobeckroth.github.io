@@ -12,17 +12,24 @@
     display:flex;
     flex-flow: row wrap;
     justify-content:space-between;
+   
     overflow: hidden;
 }
-
 
 p{
     font-family: 'Alegreya Sans', sans-serif;
     line-height: 200%;
     color:white;
     font-size:3vh;
+    text-align:left;
+}
+
+p.regularText{
+    text-align:center;
+   
 }
 h2{
+    text-align:center;
     margin-top:3vh;
     margin-bottom:3vh;
     font-weight:bold;
