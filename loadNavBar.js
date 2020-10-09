@@ -20,7 +20,7 @@ function hideOptions(event){
     }
 }
 
-var links = ["about.html","portfolio.html","blog.html","constact.html"]
+var links = ["about.html","portfolio.html","blog.html","contact.html"]
 var names = ["About","Portfolio","Blog","Contact"]
 function showOptions(){
     dropdownImg = document.getElementById("dropdownImage");
@@ -51,7 +51,7 @@ function showOptions(){
     navHolder.appendChild(navList);
 
     for(var i = 0; i < names.length; i++){
-        navList.appendChild(createNavItem(names[i]));
+        navList.appendChild(createNavItem(names[i],links[i]));
 
     }
     document.body.appendChild(navHolder)
@@ -78,11 +78,11 @@ function enableScroll() {
     window.onscroll = function() {}; 
 } 
 
-function createNavItem(name,link){
+function createNavItem(name,linkURL){
     navItem = document.createElement("li");
     navItem.classList.add("navItem");
     link = document.createElement("a");
-    link.href = link;
+    link.href = linkURL;
     link.classList.add("navLink")
     link.textContent = name;
     navItem.appendChild(link);

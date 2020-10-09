@@ -1,0 +1,26 @@
+
+
+
+*{
+    color:white;
+}
+
+
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:underline;
+}
+
+#contactHolder{
+    text-align:center;
+    width:100%;
+    align-items:center;
+}
+h1{
+    font-size:10vh;
+}
+p{
+    text-align:center;
+}
