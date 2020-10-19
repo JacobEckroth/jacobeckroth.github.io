@@ -5,6 +5,7 @@
 
 #mainContentHolder{
 
+    padding-bottom:10vh;
     padding-top:4vh;
     width:85%;
     padding-left:7vw;
@@ -52,6 +53,15 @@ h2{
 
 .imageHolder{
     width:100%;
+}
+
+a{
+    color:white;
+    
+    text-decoration:underline;
+}
+a:hover{
+ 
 }
 
 
