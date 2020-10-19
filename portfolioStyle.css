@@ -39,3 +39,23 @@ h1{
     margin-bottom:5vh;
     font-size:10vh;
 }
+
+
+@media (max-width: 700px){
+    .projectHolder{
+        width:80%;
+    }
+    .projectHolder img{
+        width:70%;
+    }
+}
+@media (max-width: 350px){
+    .projectHolder{
+        width:95%;
+        
+
+    }
+    .projectHolder img{
+        width:90%;
+    }
+}
