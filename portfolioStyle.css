@@ -1,5 +1,6 @@
 #contentHolder{
     width: 90vw;
+    margin-left:5vw;
     display: flex;
     flex-flow: column wrap;
     justify-content:space-around;

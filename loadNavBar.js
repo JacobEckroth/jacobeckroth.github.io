@@ -20,8 +20,8 @@ function hideOptions(event){
     }
 }
 
-var links = ["about.html","portfolio.html","blog.html","contact.html"]
-var names = ["About","Portfolio","Blog","Contact"]
+var links = ["about.html","portfolio.html","contact.html"]
+var names = ["About","Portfolio","Contact"]
 function showOptions(){
     dropdownImg = document.getElementById("dropdownImage");
     dropdownImg.style.transform = "rotate(180deg)";
