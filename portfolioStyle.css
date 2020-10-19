@@ -4,7 +4,7 @@
     flex-flow: column wrap;
     justify-content:space-around;
     align-items:center;
-    margin-top:10vh;
+    margin-top:5vh;
    
    
 }
@@ -31,4 +31,10 @@
 .projectHolder p{
     text-align:center;
     color:black;
+}
+
+h1{
+    color:white;
+    margin-bottom:5vh;
+    font-size:10vh;
 }
