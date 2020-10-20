@@ -65,4 +65,19 @@ a:hover{
 }
 
 
-@media()
+@media( max-width:450px){
+    h2{
+        font-size:3rem;
+    }
+    p{
+        font-size:1.3rem;
+    }
+}
+@media( max-width:300px){
+    h2{
+        font-size:2rem;
+    }
+    p{
+        font-size:1rem;
+    }
+}
