@@ -1,0 +1,55 @@
+#projectTitle{
+    color:white;
+    text-align:center;
+    font-size:4rem;
+}
+
+.videoTitle{
+    font-size:3rem;
+}
+
+.videoHolder{
+    display:flex;
+    flex-flow: column wrap;
+    align-items:center;
+}
+
+.githubLink{
+    text-align:center;
+}
+.videoWrapper {
+    justify-content:center;
+    display:block;
+    flex-flow: row wrap;
+    align-items: center;
+    position: relative;
+    margin-left:25%;
+    height: 500px;
+    width:50%;
+}
+.videoFrame{
+   
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+}
+
+.descriptionHolder{
+    display: flex;
+    flex-flow: column wrap;
+    align-items:center;
+}
+h3{
+    color:white;
+    text-align:center;
+    font-size:3rem;
+}
+p.descriptionText{
+    text-align:center;
+    width:50%;
+    padding-bottom:100px;
+}
