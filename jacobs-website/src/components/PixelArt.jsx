@@ -1,25 +1,12 @@
-const imageList = ['img1.jpg', 'img2.png'];
-
-export default function ImageGallery() {
+import React from 'react';
+import "../css/PixelArtHolder.css"
+const PixelArt = ({ imagePath, altText, dateCreated }) => {
   return (
-    <div>
-      {imageList.map((filename) => (
-        <img
-          key={filename}
-          src={`/images/${filename}`}
-          alt={filename}
-          style={{ width: '150px' }}
-        />
-      ))}
+    <div className="image-item">
+    <img src={imagePath} alt={altText || 'image'} style={{ maxWidth: '100%' }} />
+    <p className="image-date">{dateCreated}</p>
     </div>
   );
-}
+};
 
-export default function PixelArt(){
-    return(
-<div>
-
-</div>
-    )
-}
-
+export default PixelArt;
