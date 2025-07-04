@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.2214493c.css",
-    "main.js": "/static/js/main.00947ab7.js",
-    "static/js/453.a6d26bfa.chunk.js": "/static/js/453.a6d26bfa.chunk.js",
-    "index.html": "/index.html",
-    "main.2214493c.css.map": "/static/css/main.2214493c.css.map",
-    "main.00947ab7.js.map": "/static/js/main.00947ab7.js.map",
-    "453.a6d26bfa.chunk.js.map": "/static/js/453.a6d26bfa.chunk.js.map"
+    "main.css": "/jacobeckroth.github.io/static/css/main.2214493c.css",
+    "main.js": "/jacobeckroth.github.io/static/js/main.bb25d347.js",
+    "static/js/453.a6d26bfa.chunk.js": "/jacobeckroth.github.io/static/js/453.a6d26bfa.chunk.js",
+    "index.html": "/jacobeckroth.github.io/index.html",
+    "main.2214493c.css.map": "/jacobeckroth.github.io/static/css/main.2214493c.css.map",
+    "main.bb25d347.js.map": "/jacobeckroth.github.io/static/js/main.bb25d347.js.map",
+    "453.a6d26bfa.chunk.js.map": "/jacobeckroth.github.io/static/js/453.a6d26bfa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2214493c.css",
-    "static/js/main.00947ab7.js"
+    "static/js/main.bb25d347.js"
   ]
 }
