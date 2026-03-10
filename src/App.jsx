@@ -1,35 +1,327 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const portfolio = {
+  name: "Jacob Eckroth",
+  tagline: "Educator and Learner",
+  bio: "I teach the math that powers everything. Passionate about clear proofs, elegant algorithms, and turning confusion into understanding. Based in the classroom and the terminal, working on something interesting.",
+  email: "jacobeckroth@gmail.com",
+  socials: {
+    github: "https://github.com/jacobeckroth",
+    linkedin: "https://www.linkedin.com/in/jacob-e-918064196/",
+  },
+};
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap');
 
-export default App
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+          --bg: #0d0d0f;
+          --ink: #f0eee8;
+          --muted: #6b6a72;
+          --accent: #b8f564;
+          --card: #141417;
+          --border: #242428;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+          background: var(--bg);
+          color: var(--ink);
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 14px;
+          line-height: 1.7;
+        }
+
+        .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* NAME POP ANIMATION */
+        @keyframes namePop {
+          0%   { opacity: 0; transform: scale(0.6) translateY(30px); }
+          60%  { opacity: 1; transform: scale(1.08) translateY(-6px); }
+          80%  { transform: scale(0.97) translateY(2px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .hero-name-pop {
+          animation: namePop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+        }
+
+        /* FIXED HEADER */
+        header {
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          z-index: 100;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 2rem;
+          padding: 1.1rem 2.5rem;
+          background: var(--bg);
+          border-bottom: 1px solid var(--border);
+        }
+        .header-link {
+          color: var(--muted);
+          text-decoration: none;
+          font-size: 11px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          transition: color 0.2s;
+        }
+        .header-link:hover { color: var(--accent); }
+
+        /* SECTIONS */
+        section {
+          max-width: 760px;
+          margin: 0 auto;
+          padding: 5rem 2rem;
+        }
+
+        /* HERO */
+        #hero {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-top: 80px;
+        }
+        .hero-label {
+          font-size: 11px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: var(--accent);
+          margin-bottom: 1.5rem;
+        }
+        .hero-name {
+          font-family: 'Bebas Neue', sans-serif;
+          font-weight: 400;
+          font-size: clamp(4rem, 13vw, 10rem);
+          line-height: 0.95;
+          letter-spacing: 0.04em;
+          margin-bottom: 1.5rem;
+        }
+        .hero-tagline {
+          font-size: 1rem;
+          color: var(--muted);
+          max-width: 420px;
+          margin-bottom: 3rem;
+        }
+        .hero-cta {
+          display: inline-block;
+          padding: 0.75rem 1.75rem;
+          background: var(--accent);
+          color: var(--bg);
+          text-decoration: none;
+          font-size: 13px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          font-family: 'Share Tech Mono', monospace;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .hero-cta:hover {
+          background: var(--ink);
+          color: var(--accent);
+          transform: translateY(-2px);
+        }
+
+        /* DIVIDER */
+        .divider {
+          width: 40px;
+          height: 2px;
+          background: var(--accent);
+          margin-bottom: 2.5rem;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+          font-size: 11px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin-bottom: 0.75rem;
+        }
+        .section-title {
+          font-family: 'Bebas Neue', sans-serif;
+          font-weight: 400;
+          font-size: 3.5rem;
+          line-height: 1;
+          letter-spacing: 0.05em;
+          margin-bottom: 2rem;
+        }
+
+        /* ABOUT */
+        #about { border-top: 1px solid var(--border); }
+        .about-text {
+          font-size: 1rem;
+          color: var(--muted);
+          max-width: 560px;
+          line-height: 1.9;
+        }
+
+        /* PROJECTS */
+        #projects { border-top: 1px solid var(--border); }
+        .projects-grid {
+          display: grid;
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+          margin-top: 1rem;
+        }
+        .project-card {
+          background: var(--bg);
+          padding: 2rem;
+          text-decoration: none;
+          color: inherit;
+          transition: background 0.2s;
+          display: block;
+        }
+        .project-card:hover { background: var(--card); }
+        .project-card:hover .project-arrow { transform: translate(4px, -4px); }
+        .project-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 0.75rem;
+        }
+        .project-title {
+          font-family: 'Bebas Neue', sans-serif;
+          font-weight: 400;
+          font-size: 1.8rem;
+          letter-spacing: 0.05em;
+        }
+        .project-arrow {
+          font-size: 1.1rem;
+          color: var(--muted);
+          transition: transform 0.2s;
+        }
+        .project-desc {
+          color: var(--muted);
+          font-size: 13px;
+          margin-bottom: 1.25rem;
+          max-width: 480px;
+        }
+        .project-tags {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+        .tag {
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          padding: 0.25rem 0.6rem;
+          border: 1px solid var(--border);
+          color: var(--muted);
+        }
+
+        /* CONTACT */
+        #contact { border-top: 1px solid var(--border); }
+        .contact-links {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+        .contact-link {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          text-decoration: none;
+          color: var(--muted);
+          font-size: 13px;
+          transition: color 0.2s;
+          padding: 1rem 0;
+          border-bottom: 1px solid var(--border);
+        }
+        .contact-link:hover { color: var(--ink); }
+        .contact-link:hover .link-label { color: var(--accent); }
+        .link-label {
+          font-family: 'Bebas Neue', sans-serif;
+          font-weight: 400;
+          font-size: 1.6rem;
+          letter-spacing: 0.05em;
+          color: var(--ink);
+          transition: color 0.2s;
+          min-width: 120px;
+        }
+
+        /* FOOTER */
+        footer {
+          text-align: center;
+          padding: 2rem;
+          color: var(--muted);
+          font-size: 12px;
+          border-top: 1px solid var(--border);
+        }
+      `}</style>
+
+      <header>
+        <a href={`mailto:${portfolio.email}`} className="header-link">{portfolio.email}</a>
+        <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="header-link">GitHub</a>
+        <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="header-link">LinkedIn</a>
+      </header>
+
+      {/* HERO */}
+      <section id="hero">
+        <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "0s" }}>
+        </div>
+        <h1 className="hero-name hero-name-pop">{portfolio.name}</h1>
+        <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
+          <p className="hero-tagline">{portfolio.tagline}</p>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about">
+        <p className="section-label">About</p>
+        <h2 className="section-title">A bit about me.</h2>
+        <div className="divider" />
+        <p className="about-text">{portfolio.bio}</p>
+      </section>
+
+      
+
+      {/* CONTACT */}
+      <section id="contact">
+        <p className="section-label">Contact</p>
+        <h2 className="section-title">Get in touch.</h2>
+        <div className="contact-links">
+          <a href={`mailto:${portfolio.email}`} className="contact-link">
+            <span className="link-label">Email</span>
+            <span>{portfolio.email}</span>
+          </a>
+          <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="contact-link">
+            <span className="link-label">GitHub</span>
+            <span>github.com/jacobeckroth</span>
+          </a>
+          <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="contact-link">
+            <span className="link-label">LinkedIn</span>
+            <span>https://www.linkedin.com/in/jacob-e-918064196/</span>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <p>© {new Date().getFullYear()} {portfolio.name}</p>
+      </footer>
+    </>
+  );
+}
