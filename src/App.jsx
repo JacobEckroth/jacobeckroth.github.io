@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BlogList, BlogPost } from "./Blog";
 
 const portfolio = {
   name: "Jacob Eckroth",
@@ -11,12 +12,32 @@ const portfolio = {
   },
 };
 
+// Simple client-side router using a state machine
+// page: "home" | "blog" | "post"
+// postSlug: string | null
+function useRouter() {
+  const [page, setPage] = useState("home");
+  const [postSlug, setPostSlug] = useState(null);
+
+  const goHome = () => { setPage("home"); setPostSlug(null); };
+  const goBlog = () => { setPage("blog"); setPostSlug(null); };
+  const goPost = (slug) => { setPage("post"); setPostSlug(slug); };
+
+  return { page, postSlug, goHome, goBlog, goPost };
+}
+
 export default function App() {
   const [visible, setVisible] = useState(false);
+  const { page, postSlug, goHome, goBlog, goPost } = useRouter();
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
   }, []);
+
+  // Scroll to top on page change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page, postSlug]);
 
   return (
     <>
@@ -54,7 +75,6 @@ export default function App() {
           transform: translateY(0);
         }
 
-        /* NAME POP ANIMATION */
         @keyframes namePop {
           0%   { opacity: 0; transform: scale(0.6) translateY(30px); }
           60%  { opacity: 1; transform: scale(1.08) translateY(-6px); }
@@ -85,8 +105,13 @@ export default function App() {
           letter-spacing: 0.1em;
           text-transform: uppercase;
           transition: color 0.2s;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'Share Tech Mono', monospace;
         }
         .header-link:hover { color: var(--accent); }
+        .header-link.active { color: var(--accent); }
 
         /* SECTIONS */
         section {
@@ -103,13 +128,6 @@ export default function App() {
           justify-content: center;
           padding-top: 80px;
         }
-        .hero-label {
-          font-size: 11px;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: var(--accent);
-          margin-bottom: 1.5rem;
-        }
         .hero-name {
           font-family: 'Bebas Neue', sans-serif;
           font-weight: 400;
@@ -123,23 +141,6 @@ export default function App() {
           color: var(--muted);
           max-width: 420px;
           margin-bottom: 3rem;
-        }
-        .hero-cta {
-          display: inline-block;
-          padding: 0.75rem 1.75rem;
-          background: var(--accent);
-          color: var(--bg);
-          text-decoration: none;
-          font-size: 13px;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          font-family: 'Share Tech Mono', monospace;
-          transition: background 0.2s, transform 0.2s;
-        }
-        .hero-cta:hover {
-          background: var(--ink);
-          color: var(--accent);
-          transform: translateY(-2px);
         }
 
         /* DIVIDER */
@@ -176,62 +177,6 @@ export default function App() {
           line-height: 1.9;
         }
 
-        /* PROJECTS */
-        #projects { border-top: 1px solid var(--border); }
-        .projects-grid {
-          display: grid;
-          gap: 1px;
-          background: var(--border);
-          border: 1px solid var(--border);
-          margin-top: 1rem;
-        }
-        .project-card {
-          background: var(--bg);
-          padding: 2rem;
-          text-decoration: none;
-          color: inherit;
-          transition: background 0.2s;
-          display: block;
-        }
-        .project-card:hover { background: var(--card); }
-        .project-card:hover .project-arrow { transform: translate(4px, -4px); }
-        .project-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 0.75rem;
-        }
-        .project-title {
-          font-family: 'Bebas Neue', sans-serif;
-          font-weight: 400;
-          font-size: 1.8rem;
-          letter-spacing: 0.05em;
-        }
-        .project-arrow {
-          font-size: 1.1rem;
-          color: var(--muted);
-          transition: transform 0.2s;
-        }
-        .project-desc {
-          color: var(--muted);
-          font-size: 13px;
-          margin-bottom: 1.25rem;
-          max-width: 480px;
-        }
-        .project-tags {
-          display: flex;
-          gap: 0.5rem;
-          flex-wrap: wrap;
-        }
-        .tag {
-          font-size: 11px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          padding: 0.25rem 0.6rem;
-          border: 1px solid var(--border);
-          color: var(--muted);
-        }
-
         /* CONTACT */
         #contact { border-top: 1px solid var(--border); }
         .contact-links {
@@ -263,7 +208,6 @@ export default function App() {
           min-width: 120px;
         }
 
-        /* FOOTER */
         footer {
           text-align: center;
           padding: 2rem;
@@ -274,54 +218,72 @@ export default function App() {
       `}</style>
 
       <header>
+        <button className={`header-link ${page === "home" ? "active" : ""}`} onClick={goHome}>
+          Home
+        </button>
+        <button className={`header-link ${page === "blog" || page === "post" ? "active" : ""}`} onClick={goBlog}>
+          Writing
+        </button>
         <a href={`mailto:${portfolio.email}`} className="header-link">{portfolio.email}</a>
         <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="header-link">GitHub</a>
         <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="header-link">LinkedIn</a>
       </header>
 
-      {/* HERO */}
-      <section id="hero">
-        <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "0s" }}>
-        </div>
-        <h1 className="hero-name hero-name-pop">{portfolio.name}</h1>
-        <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
-          <p className="hero-tagline">{portfolio.tagline}</p>
-        </div>
-      </section>
+      {/* ── HOME PAGE ── */}
+      {page === "home" && (
+        <>
+          <section id="hero">
+            <h1 className="hero-name hero-name-pop">{portfolio.name}</h1>
+            <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
+              <p className="hero-tagline">{portfolio.tagline}</p>
+            </div>
+          </section>
 
-      {/* ABOUT */}
-      <section id="about">
-        <p className="section-label">About</p>
-        <h2 className="section-title">A bit about me.</h2>
-        <div className="divider" />
-        <p className="about-text">{portfolio.bio}</p>
-      </section>
+          <section id="about">
+            <p className="section-label">About</p>
+            <h2 className="section-title">A bit about me.</h2>
+            <div className="divider" />
+            <p className="about-text">{portfolio.bio}</p>
+          </section>
 
-      
+          <section id="contact">
+            <p className="section-label">Contact</p>
+            <h2 className="section-title">Get in touch.</h2>
+            <div className="contact-links">
+              <a href={`mailto:${portfolio.email}`} className="contact-link">
+                <span className="link-label">Email</span>
+                <span>{portfolio.email}</span>
+              </a>
+              <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="contact-link">
+                <span className="link-label">GitHub</span>
+                <span>github.com/jacobeckroth</span>
+              </a>
+              <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="contact-link">
+                <span className="link-label">LinkedIn</span>
+                <span>linkedin.com/in/jacob-e-918064196</span>
+              </a>
+            </div>
+          </section>
 
-      {/* CONTACT */}
-      <section id="contact">
-        <p className="section-label">Contact</p>
-        <h2 className="section-title">Get in touch.</h2>
-        <div className="contact-links">
-          <a href={`mailto:${portfolio.email}`} className="contact-link">
-            <span className="link-label">Email</span>
-            <span>{portfolio.email}</span>
-          </a>
-          <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="contact-link">
-            <span className="link-label">GitHub</span>
-            <span>github.com/jacobeckroth</span>
-          </a>
-          <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="contact-link">
-            <span className="link-label">LinkedIn</span>
-            <span>https://www.linkedin.com/in/jacob-e-918064196/</span>
-          </a>
-        </div>
-      </section>
+          <footer>
+            <p>© {new Date().getFullYear()} {portfolio.name}</p>
+          </footer>
+        </>
+      )}
 
-      <footer>
-        <p>© {new Date().getFullYear()} {portfolio.name}</p>
-      </footer>
+      {/* ── BLOG LIST PAGE ── */}
+      {page === "blog" && (
+        <section style={{ paddingTop: "80px" }}>
+          <BlogList onSelectPost={goPost} />
+        </section>
+      )}
+
+      {/* ── SINGLE POST PAGE ── */}
+      {page === "post" && (
+        <section style={{ paddingTop: "80px" }}>
+          <BlogPost slug={postSlug} onBack={goBlog} />
+        </section>
+      )}
     </>
   );
 }
