@@ -28,6 +28,7 @@ function useRouter() {
 
 export default function App() {
   const [visible, setVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);  // ← add this
   const { page, postSlug, goHome, goBlog, goPost } = useRouter();
 
   useEffect(() => {
@@ -98,6 +99,64 @@ export default function App() {
           background: var(--bg);
           border-bottom: 1px solid var(--border);
         }
+
+       /* HAMBURGER - hidden on desktop */
+        .hamburger {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          margin-left: auto;
+        }
+        .hamburger span {
+          display: block;
+          width: 22px;
+          height: 2px;
+          background: var(--ink);
+          border-radius: 2px;
+          transition: transform 0.25s, opacity 0.25s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* MOBILE DROPDOWN - hidden on desktop */
+        .mobile-menu {
+          display: none;
+          position: fixed;
+          top: 52px; left: 0; right: 0;
+          z-index: 99;
+          background: var(--bg);
+          border-bottom: 1px solid var(--border);
+          flex-direction: column;
+          gap: 1rem;
+          padding: 0 2.5rem;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.25s ease, padding 0.25s ease;
+        }
+
+        .mobile-menu button.header-link {
+          width: 100%;
+          text-align: left;
+          padding: 0;
+          margin: 0;
+        }
+
+       @media (max-width: 768px) {
+        header { gap: 0; }
+        .header-link { display: none; }
+        .hamburger { display: flex; }
+        .mobile-menu { display: flex; }
+        .mobile-menu .header-link { display: block; text-align: left; }  /* ← add text-align: left */
+        .mobile-menu.open {
+          max-height: 400px;
+          padding: 1rem 2.5rem;
+        }
+      }
         .header-link {
           color: var(--muted);
           text-decoration: none;
@@ -218,16 +277,30 @@ export default function App() {
       `}</style>
 
       <header>
-        <button className={`header-link ${page === "home" ? "active" : ""}`} onClick={goHome}>
-          Home
-        </button>
-        <button className={`header-link ${page === "blog" || page === "post" ? "active" : ""}`} onClick={goBlog}>
-          Writing
-        </button>
+        <button className={`header-link ${page === "home" ? "active" : ""}`} onClick={goHome}>Home</button>
+        <button className={`header-link ${page === "blog" || page === "post" ? "active" : ""}`} onClick={goBlog}>Writing</button>
         <a href={`mailto:${portfolio.email}`} className="header-link">{portfolio.email}</a>
         <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="header-link">GitHub</a>
         <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="header-link">LinkedIn</a>
+
+        {/* Hamburger button (mobile only) */}
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          <span /><span /><span />
+        </button>
       </header>
+
+      {/* Mobile dropdown */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <button className={`header-link ${page === "home" ? "active" : ""}`} onClick={() => { goHome(); setMenuOpen(false); }}>Home</button>
+        <button className={`header-link ${page === "blog" || page === "post" ? "active" : ""}`} onClick={() => { goBlog(); setMenuOpen(false); }}>Writing</button>
+        <a href={`mailto:${portfolio.email}`} className="header-link" onClick={() => setMenuOpen(false)}>{portfolio.email}</a>
+        <a href={portfolio.socials.github} target="_blank" rel="noreferrer" className="header-link" onClick={() => setMenuOpen(false)}>GitHub</a>
+        <a href={portfolio.socials.linkedin} target="_blank" rel="noreferrer" className="header-link" onClick={() => setMenuOpen(false)}>LinkedIn</a>
+      </div>
 
       {/* ── HOME PAGE ── */}
       {page === "home" && (
