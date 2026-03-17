@@ -21,7 +21,7 @@ Jacob
 
 `,t1=`---
 title: Grandeur
-date: 2026-03-1y
+date: 2026-03-17
 summary: Is it useful or not?
 ---
 
